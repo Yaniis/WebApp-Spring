@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bonjour</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.1/css/bootstrap.min.css}">
+</head>
+
+<body>
+<h1 class="">
+    tet
+</h1>
+<table>
+    <th:block th:each="student : ${list}">
+        <td th:utext="${student.getName()}">
+        </td>
+    </th:block >
+</table>
+</body>
+
+</html>
