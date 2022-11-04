@@ -10,6 +10,8 @@
         <div>
             <h2>Manager users</h2>
         </div>
+        <div th:if="${success}" th:utext="${success}" class="alert alert-success" role="alert"></div>
+        <div th:if="${error}" th:utext="${error}" class="alert alert-danger" role="alert"></div>
         <div>
             <a class="btn btn-success" th:href="@{'/users/new'}">Créer un utilisateur</a>
         </div>
@@ -20,6 +22,7 @@
                         <th>Id</th>
                         <th>Email</th>
                         <th>Actions</th>
+                        <th>Date de suppression</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +33,8 @@
                             <td>
                                 <a class="btn btn-secondary" th:href="@{'/users/edit/' + ${users.id}}">Editer</a>
                                 <a class="btn btn-warning" th:href="@{'/users/delete/' + ${users.id}}">Supprimer</a>
+                            </td>
+                            <td th:text=>
                             </td>
                         </tr>
                     </th:block>

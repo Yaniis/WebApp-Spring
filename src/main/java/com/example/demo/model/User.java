@@ -1,6 +1,11 @@
 package com.example.demo.model;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -16,6 +21,8 @@ public class User {
     @Column(length = 15, nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private Date dateDelete;
 
     public Integer getId() {
         return id;
@@ -41,12 +48,22 @@ public class User {
         this.password = password;
     }
 
+    public Date getDateDelete() {
+        return dateDelete;
+    }
+
+    public void setDateDelete(Date dateDelete) {
+        this.dateDelete = dateDelete;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", dateDelete=" + dateDelete +
                 '}';
     }
 }
